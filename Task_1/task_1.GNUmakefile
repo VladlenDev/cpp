@@ -16,4 +16,4 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -rf $(OBJ_DIR)/*.o $(EXECUTABLE) txt_out/*.txt
+	rm -rf $(OBJ_DIR)/*.o $(EXECUTABLE) csv_out/*.csv

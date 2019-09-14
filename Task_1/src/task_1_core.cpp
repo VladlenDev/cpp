@@ -1,14 +1,15 @@
 //	File:	task_1_core.cpp
 //	Author:	Zhelezov V. D.
-//	Date:	12.09.2019
+//	Date:	14.09.2019
 //////////////////////////
-#include "task_1_head.h"
+
+#include "group.h"
+using namespace std;
 
 //	initializes file using filename, writes text from file to string "filedata"
-void textfile::initialize(string fname) {
+void textfile::initialize(const string& fname) {
 	filename = fname;
 	filestream.open(filename);
-
 	if(!filestream) {
 		cout << "file " << filename << " not found" << endl;
 		exit(1);
@@ -23,19 +24,20 @@ group::~group() {
 	student *temp;
 
 	while(head) {
-		temp = head->next;
+		temp = head->get_next();
 		delete head;
 		head = temp;
 	}
 
-	outfile.close();
+	if(outfile)
+		outfile.close();
 }
 
 //	identifies student's name. is used in a loop in method "fill"
 void group::add(string name) {
 	student *temp = new student;
 	temp->regist(name);
-	temp->next = head;
+	temp->add_next(head);
 	head = temp;
 
 }
@@ -46,7 +48,7 @@ void group::show() {
 
 	while(temp) {
 		temp->display(day);
-		temp = temp->next;
+		temp = temp->get_next();
 	}
 }
 
@@ -56,7 +58,7 @@ void group::save() {
 
 	while(temp) {
 		temp->write_to_file(outfile, day);
-		temp = temp->next;
+		temp = temp->get_next();
 	}
 }
 
@@ -100,7 +102,7 @@ void group::note(string current_file) {
 		}
 
 		temp->note(day, attendance);
-		temp = temp->next;
+		temp = temp->get_next();
 	}
 
 	day++;

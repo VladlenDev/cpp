@@ -2,7 +2,9 @@
 //	Author:	Zhelezov V. D.
 //	Date:	12.09.2019
 //////////////////////////
-#include "task_1_head.h"
+
+#include "group.h"
+using namespace std;
 
 //	arguments of main function are *.txt filenames. Each file contanes information in form like this:
  ////////////////////////////
