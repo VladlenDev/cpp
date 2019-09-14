@@ -17,7 +17,7 @@ public:
 	textfile()									//	constructor
 	{ };
 	~textfile()									//	destructor
-	{ if(filestream) filestream.close(); };
+	{ if(filestream.is_open()) filestream.close(); };
 
 	void initialize(const std::string& fname);	//	initializes file using filename, writes text from file to string "filedata"
 	std::string getdata()						//	returns text from string "filedata" to calling environment
