@@ -29,7 +29,7 @@ group::~group() {
 		head = temp;
 	}
 
-	if(outfile)
+	if(outfile.is_open())
 		outfile.close();
 }
 
