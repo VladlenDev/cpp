@@ -16,7 +16,7 @@ private:
 	bool attendance[DAYS];		//	student attendance accounting
 	student *next;				//	connection in nodelist
 public:
-	void operator+(student* operand)						//	adds new branch to the list
+	void operator<<(student* operand)						//	adds new branch to the list
 	{ next = operand; };
 
 	void regist(std::string nm)								//	initializes student's name

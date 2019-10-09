@@ -37,7 +37,7 @@ group::~group() {
 void group::add(string name) {
 	student *temp = new student;
 	temp->regist(name);
-	*temp + head;
+	*temp << head;
 	head = temp;
 
 }
