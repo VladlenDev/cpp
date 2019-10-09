@@ -29,7 +29,7 @@ group::~group() {
 		head = temp;
 	}
 
-	if(outfile.is_open())
+	if(outfile)
 		outfile.close();
 }
 
@@ -37,7 +37,7 @@ group::~group() {
 void group::add(string name) {
 	student *temp = new student;
 	temp->regist(name);
-	temp->add_next(head);
+	*temp + head;
 	head = temp;
 
 }
